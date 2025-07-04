@@ -14,7 +14,7 @@ import product.Shippable;
 public class Shop {
 	
 	
-	public static void main(String[] args) throws OutOfStock, ExpiredProd, LowBalance, Empty{
+	public static void main(String[] args){
 		
 		
 		Product p1 = new Product("Cheese", 50,5); 
@@ -65,39 +65,162 @@ public class Shop {
 		
 //	working fully case
 //	Cart c = new Cart();
-//	Customer cus = new Customer(c,5000); 
-//	cus.addToCart(p1, 5);
-//	cus.addToCart(p2, 1);
-//	c.toString();
-//	cus.checkout();
+//	Customer cus = new Customer(c,100); 
+//	try{cus.addToCart(p1, 5);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//	try{cus.addToCart(p2, 1);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//
+//
+//	try {
+//		cus.checkout();
+//	} catch(Empty e){
+//		System.out.print(e.getMessage()); 
+//	}
+//	catch(LowBalance e){
+//		System.out.print(e.getMessage()); 
+//	}
 
 		
 		//-------------------------------------------------//
 		
 		
 //	insufficent balance case
+	
+	
+	
 //	Cart c = new Cart();
 //	Customer cus = new Customer(c,100); 
-//	cus.addToCart(p1, 5);
-//	cus.addToCart(p2, 1);
-//	cus.checkout();
+//	try{cus.addToCart(p1, 5);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//	try{cus.addToCart(p2, 1);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//	try{cus.checkout();}
+//	catch(Empty e){
+//		System.out.print(e.getMessage()); 
+//	}
+//	catch(LowBalance e){
+//		System.out.print(e.getMessage()); 
+//	}
+	
 		
 		//-------------------------------------------------//
 		
 //		cheese out of stock case
+	
+	
 //		Cart c = new Cart();
 //		Customer cus = new Customer(c,5000); 
-//		cus.addToCart(p1, 6);
-//		cus.addToCart(p2, 1);
-//		cus.checkout();
+//		try{cus.addToCart(p1, 6);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//		try{cus.addToCart(p2, 1);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//		try{cus.checkout();}
+//	catch(Empty e){
+//		System.out.print(e.getMessage()); 
+//	}
+//	catch(LowBalance e){
+//		System.out.print(e.getMessage()); 
+//	}
 		
 		//-------------------------------------------------//
 		
 //		empty cart case
+	
 //		Cart c = new Cart();
 //		Customer cus = new Customer(c,100); 
 
-//		cus.checkout();
+//		try{cus.checkout();}
+//	catch(Empty e){
+//		System.out.print(e.getMessage()); 
+//	}
+//	catch(LowBalance e){
+//		System.out.print(e.getMessage()); 
+//	}
 		
 		//-------------------------------------------------//
 		
@@ -113,9 +236,46 @@ public class Shop {
 //	});
 //	Cart c = new Cart();
 //	Customer cus = new Customer(c,5000); 
-//	cus.addToCart(p1, 5);
-//	cus.addToCart(p3, 1);	cus.checkout();
-		
+//	try{cus.addToCart(p1, 5);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//	try{cus.addToCart(p3, 1);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//	try{cus.checkout();}
+//	catch(Empty e){
+//		System.out.print(e.getMessage()); 
+//	}
+//	catch(LowBalance e){
+//		System.out.print(e.getMessage()); 
+//	}
+//		
 		
 //-------------------------------------------------//
 		
@@ -131,8 +291,46 @@ public class Shop {
 //	});
 //	Cart c = new Cart();
 //	Customer cus = new Customer(c,5000); 
-//	cus.addToCart(p1, 5);
-//	cus.addToCart(p3,0 );	cus.checkout();
+//	try{cus.addToCart(p1, 5);}
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//	try{cus.addToCart(p3,0 );}	
+//	catch(IllegalArgumentException e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//		
+//	}
+//	catch(OutOfStock e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//		
+//	}
+//	catch(ExpiredProd e){
+//		System.out.print(e.getMessage()); 
+//		System.out.print("\n"); 
+//	}
+//	
+//	try{cus.checkout();}
+//	catch(Empty e){
+//		System.out.print(e.getMessage()); 
+//	}
+//	catch(LowBalance e){
+//		System.out.print(e.getMessage()); 
+//	}
 		
 		
 		

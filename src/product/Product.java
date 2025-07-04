@@ -1,6 +1,7 @@
 package product;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Product{
 	
@@ -11,7 +12,7 @@ public class Product{
 	private Expirable expirable; 
 	private Shippable shippable; 
 	
-	public boolean isShipped; 
+
 
 	
 	public Product(String name, int price, int quantity){
@@ -61,13 +62,13 @@ public class Product{
 
 	public void setShippable(Shippable shippable) {
 		this.shippable = shippable;
-		this.isShipped = true; 
+		
 	}
 	
+	public boolean isShippable(){
+		return this.shippable!=null ;
+	}
 	
-
-	
-
 	
 	
 

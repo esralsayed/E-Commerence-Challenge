@@ -23,21 +23,21 @@ public class Customer {
 	}
 	
 	public void checkout() throws LowBalance, Empty{
-	try{
+	
 			if (c.getProducts().size()==0){
-				throw new Empty("Cart is empty"); 
+				throw new Empty("error: Cart is Empty, Please add items to your cart"); 
 			}
 		
 		int subtotal = getTotal();
 		if (subtotal<0){
-			 throw new LowBalance("Low Balance"); 
+			 throw new LowBalance("error: Insufficent Funds, please remove something from cart to proceed"); 
 		}
 		int fees = getShippingFees(); 
 		int total = subtotal + fees; 
 		int subbalance = balance - total; 
 
 		if (subbalance<0){
-			 throw new LowBalance("Low Balance"); 
+			 throw new LowBalance("error: Insufficent Funds, please remove something from cart to proceed"); 
 		}
 		
 		
@@ -58,7 +58,7 @@ public class Customer {
 		System.out.print("** shipping receipt **"); 
 		System.out.print("\n"); 
 		for (int i=0; i<c.getProducts().size();i++){
-			if (c.getProducts().get(i).isShipped==true){
+			if (c.getProducts().get(i).isShippable()){
 				System.out.print(c.getQuans().get(i) + "x " + c.getProducts().get(i).getName() + " " +
 			c.getProducts().get(i).getShippable().getWeight() + "kg");
 				System.out.print("\n"); 
@@ -79,13 +79,8 @@ public class Customer {
 		System.out.print("\n"); 
 		System.out.print("Remaining balance is: " + subbalance); 
 		
-	}
-	catch(Empty e){
-		System.out.print("error: Cart is Empty, Please add items to your cart"); 
-	}
-	catch(LowBalance e){
-		System.out.print("error: Insufficent Funds, please remove something from cart to proceed"); 
-	}
+	
+	
 
 	
 	System.out.print("\n"); 
@@ -95,9 +90,8 @@ public class Customer {
 	public int getTotal(){
 		int total=0; 
 		for(int i=0; i<c.getProducts().size(); i++){
-			for(int j=0;j<c.getQuans().get(i);j++){
-				total+=(c.getProducts().get(i).getPrice());
-			}
+				total+=((c.getProducts().get(i).getPrice())*c.getQuans().get(i));
+			
 		
 		}
 		return total; 
@@ -120,7 +114,6 @@ public class Customer {
 	}
 	
 	public void addToCart(Product p, int quantity) throws OutOfStock, ExpiredProd{
-		try{
 		if (quantity <=0){
 			 throw new IllegalArgumentException("error: " + p.getName()+" Quantity has to be bigger than 0");
              
@@ -143,22 +136,8 @@ public class Customer {
 		else{
 			throw new OutOfStock("error: Cannot add " + quantity +" "+ p.getName() + ", only " + p.getQuantity()+ " remains in stock"); 
 		}
-		}
-		catch(IllegalArgumentException e){
-			System.out.print(e.getMessage()); 
-			System.out.print("\n"); 
-			
-			
-		}
-		catch(OutOfStock e){
-			System.out.print(e.getMessage()); 
-			System.out.print("\n"); 
-			
-		}
-		catch(ExpiredProd e){
-			System.out.print(e.getMessage()); 
-			System.out.print("\n"); 
-		}
+		
+		
 		
 	}
 

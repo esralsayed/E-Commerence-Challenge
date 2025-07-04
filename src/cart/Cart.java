@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import exceptions.ExpiredProd;
 import exceptions.OutOfStock;
 import product.Product;
+import product.ShippingService;
 
 public class Cart {
 	
@@ -19,7 +20,7 @@ public class Cart {
 	public double getTotalWeight(){
 		double totalweight=0; 
 		for (int i=0;i<this.products.size();i++){
-			if (this.products.get(i).isShipped==true){
+			if (this.products.get(i).isShippable()){
 				for(int j=0; j<quans.get(i);j++){
 					totalweight+=this.products.get(i).getShippable().getWeight(); 
 					
@@ -31,6 +32,19 @@ public class Cart {
 		return totalweight; 
 	}
 	
+	public void ShippedProducts(){
+		ArrayList<Product> shipped= new ArrayList<Product>(); 
+		for (int i=0;i<this.products.size();i++){
+		if (this.products.get(i).isShippable()){
+			shipped.add(this.products.get(i)); 
+			
+		}
+		}
+			
+		ShippingService s = new ShippingService(shipped); 
+	}
+	
+	
 
 
 	public ArrayList<Product> getProducts() {
@@ -40,6 +54,7 @@ public class Cart {
 	public ArrayList<Integer> getQuans() {
 		return quans;
 	}
+
 	
 
 
