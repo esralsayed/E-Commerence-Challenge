@@ -23,25 +23,23 @@ public class Customer {
 	}
 	
 	public void checkout() throws LowBalance, Empty{
-	
+	try{
 			if (c.getProducts().size()==0){
 				throw new Empty("Cart is empty"); 
 			}
 		
-
-
-		
 		int subtotal = getTotal();
+		if (subtotal<0){
+			 throw new LowBalance("Low Balance"); 
+		}
 		int fees = getShippingFees(); 
 		int total = subtotal + fees; 
 		int subbalance = balance - total; 
 
-			if (subbalance<0){
-				 throw new LowBalance("Low Balance, cannot purchase, please remove something from cart to proceed"); 
-			}
+		if (subbalance<0){
+			 throw new LowBalance("Low Balance"); 
+		}
 		
-		
-
 		
 		//receipt
 		System.out.print("** checkout receipt **"); 
@@ -81,8 +79,16 @@ public class Customer {
 		System.out.print("\n"); 
 		System.out.print("Remaining balance is: " + subbalance); 
 		
-		
-		
+	}
+	catch(Empty e){
+		System.out.print("error: Cart is Empty, Please add items to your cart"); 
+	}
+	catch(LowBalance e){
+		System.out.print("error: Insufficent Funds, please remove something from cart to proceed"); 
+	}
+
+	
+	System.out.print("\n"); 
 		
 	}
 	
@@ -114,11 +120,16 @@ public class Customer {
 	}
 	
 	public void addToCart(Product p, int quantity) throws OutOfStock, ExpiredProd{
+		try{
+		if (quantity <=0){
+			 throw new IllegalArgumentException("error: " + p.getName()+" Quantity has to be bigger than 0");
+             
+		}
 		if (p.getQuantity()==0){
-			throw new OutOfStock(p.getName()+" out of stock"); 
+			throw new OutOfStock("error " + p.getName()+" out of stock"); 
 		}
 			if(p.isExpired()==true){
-				throw new ExpiredProd(p.getName()+" is expired, add another"); 
+				throw new ExpiredProd("error " + p.getName()+" is expired, add another item"); 
 			}
 			
 		if (quantity<=p.getQuantity()){
@@ -130,21 +141,27 @@ public class Customer {
 		
 		}
 		else{
-			throw new OutOfStock("Cannot add " + quantity +" "+ p.getName() + ", only " + p.getQuantity()+ " remains in stock"); 
+			throw new OutOfStock("error: Cannot add " + quantity +" "+ p.getName() + ", only " + p.getQuantity()+ " remains in stock"); 
+		}
+		}
+		catch(IllegalArgumentException e){
+			System.out.print(e.getMessage()); 
+			System.out.print("\n"); 
+			
+			
+		}
+		catch(OutOfStock e){
+			System.out.print(e.getMessage()); 
+			System.out.print("\n"); 
+			
+		}
+		catch(ExpiredProd e){
+			System.out.print(e.getMessage()); 
+			System.out.print("\n"); 
 		}
 		
 	}
-	
-	public void remove(Product p, int quantity){
 
-		for(int i=0; i<c.getProducts().size();i++){
-			if(c.getProducts().get(i).getName().equals(p.getName())){
-				c.getProducts().remove(i); 
-				c.getQuans().remove(i);
-			}
-		}
-		
-	}
 	
 	
 	
